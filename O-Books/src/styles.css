@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 17px;
+    font-size: 24px;
     font-weight: 300;
     overflow-x: hidden;
     color: white;
@@ -22,8 +22,4 @@ a:hover {
 
 button:focus {
     outline: none;
-}
-
-p {
-    line-height: 1.9;
 }
