@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { FeatureRoutingModule } from './feature-routing.module';
 
 
 
 @NgModule({
   declarations: [
-    HomePageComponent
+    HomePageComponent,
+    NotFoundPageComponent
   ],
   imports: [
-    CommonModule,
-    FeatureRoutingModule,
-  ],
-  exports: [
-    HomePageComponent
+    CommonModule
   ]
 })
-export class FeatureModule { }
+export class PagesModule { }

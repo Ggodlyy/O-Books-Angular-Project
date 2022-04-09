@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
-import { FeatureModule } from './feature/feature.module';
+import { BooksModule } from './feature/books/books.module';
+import { PagesModule } from './feature/pages/pages.module';
+
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -18,9 +20,9 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     CoreModule.forRoot(),
     AppRoutingModule,
-    FeatureModule,
-    SharedModule
-
+    SharedModule,
+    PagesModule,
+    BooksModule,
   ],
   providers: [],
   bootstrap: [
