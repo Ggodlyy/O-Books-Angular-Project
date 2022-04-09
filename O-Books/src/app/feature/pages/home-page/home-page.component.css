@@ -1,4 +1,9 @@
 .home-page-content {
+    /* background-image: url('../../../../assets/books.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    padding: 10% 10% 10% 10%;
     margin-bottom: 10%;
     text-align: center;
 }
+
