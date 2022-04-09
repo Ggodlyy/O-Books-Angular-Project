@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { BooksModule } from './feature/books/books.module';
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     PagesModule,
     BooksModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [
