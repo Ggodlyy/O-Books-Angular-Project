@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
+import { FeatureModule } from './feature/feature.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HeaderComponent } from './core/header/header.component';
     RouterModule,
     CoreModule.forRoot(),
     AppRoutingModule,
+    FeatureModule,
+    SharedModule
 
   ],
   providers: [],

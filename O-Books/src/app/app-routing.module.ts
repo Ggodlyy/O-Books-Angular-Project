@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
+import { HomePageComponent } from "./feature/home-page/home-page.component";
 
 
 const routes: Routes = [
@@ -7,6 +8,10 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'home',
     },
+    {
+        path: 'home',
+        component: HomePageComponent
+    }
    
 ];
 
