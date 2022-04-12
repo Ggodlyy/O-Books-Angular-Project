@@ -30,7 +30,7 @@
         </p>
       </ng-container>
 
-      <button type="submit" class="loginbtn">Login</button>
+      <button [disabled]="loginFormGroup.invalid" class="loginbtn">Login</button>
     </div>
     <p>Don't have an account? <a routerLink="/register">Register</a>.</p>
   </form>
