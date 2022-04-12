@@ -11,6 +11,8 @@ import { emailValidator, passwordMatch } from '../utils';
 })
 export class RegisterComponent implements OnInit {
 
+  errorMessage: string;
+
   passwordControl = new FormControl(null, [Validators.required, Validators.minLength(3)]);
   validRepass: boolean = true;
 
@@ -36,8 +38,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerHandler(): void {
-    console.log(this.passwordsGroup.controls.password.value)
-    console.log(this.passwordsGroup.controls.repass.value)
+
     if (this.passwordsGroup.controls.password.value !== this.passwordsGroup.controls.repass.value) {
       this.validRepass = false;
       return;
@@ -52,8 +53,12 @@ export class RegisterComponent implements OnInit {
       password: passwords.password
     };
 
-    this.userService.register$(body).subscribe(() => {
-      this.router.navigate(['/home']);
+    this.userService.register$(body).subscribe({
+      next: user => {
+        this.router.navigate(['/home']);
+      },error: (err) => {
+        this.errorMessage = err.error.message;
+      }
     });
 
   }
