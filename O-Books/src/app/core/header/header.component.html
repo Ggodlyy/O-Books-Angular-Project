@@ -30,16 +30,16 @@
                     <div class="collapse navbar-collapse tm-nav" id="navbar-nav" *ngIf="isLogged">
                         <ul class="navbar-nav text-uppercase" >
                             <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="index.html">Home</a>
+                                <a class="nav-link tm-nav-link" routerLink="/home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="contact.html">Library</a>
+                                <a class="nav-link tm-nav-link" routerLink="/library">Library</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="about.html">Add book</a>
+                                <a class="nav-link tm-nav-link" routerLink="/add-book">Add book</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tm-nav-link" href="contact.html">{{currentUser.email}}'s Profile</a>
+                                <a class="nav-link tm-nav-link" routerLink="/profile">{{currentUser.email}}'s Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link tm-nav-link" (click)="logoutHandler()" >Logout</a>
