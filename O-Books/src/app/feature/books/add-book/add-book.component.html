@@ -1,7 +1,7 @@
 <section id="create-page">
 
     <article class="create-page-container">
-      <form action="/create" method="POST" class="create-page-form">
+      <form #addBookForm="ngForm" (ngSubmit)="submitBook(addBookForm)" class="create-page-form">
         <h2>Create a book</h2>
 
         <div class="form-context">
@@ -12,6 +12,7 @@
               placeholder="title"
               name="title"
               value=""
+              ngModel
             />
     
             <label for="author">author:</label>
@@ -21,6 +22,7 @@
               placeholder="author"
               name="author"
               value=""
+              ngModel
             />
     
             <label for="genre">genre:</label>
@@ -30,6 +32,7 @@
               placeholder="genre"
               name="genre"
               value=""
+              ngModel
             />
     
             <label for="img">Book image:</label>
@@ -39,16 +42,9 @@
               placeholder="Book image"
               name="img"
               value=""
+              ngModel
             />
     
-            <label for="description">description:</label>
-            <input
-              type="text"
-              id="description"
-              placeholder="description"
-              name="description"
-              value=""
-            />
     
             <label for="price">price:</label>
             <input
@@ -57,7 +53,17 @@
               placeholder="price"
               name="price"
               value=""
+              ngModel
             />
+
+            <label for="description">description:</label>
+            <textarea
+              type="text"
+              id="description"
+              placeholder="description"
+              name="description"
+              ngModel
+            > </textarea>
         </div>
 
         <article class="create-page-button">
