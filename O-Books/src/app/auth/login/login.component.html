@@ -11,7 +11,7 @@
           Email is required!
         </p>
 
-        <p *ngIf="loginFormGroup.controls['email'].errors.email" class="error">
+        <p *ngIf="!loginFormGroup.controls['email'].errors.required && loginFormGroup.controls['email'].errors.email" class="error">
           Must be a valid email!
         </p>
       </ng-container>
