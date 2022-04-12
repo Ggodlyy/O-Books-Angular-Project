@@ -8,8 +8,8 @@
 .create-page-container,
 .edit-page-container {
     background-color: #fff;
-    width: 600px;
-    height: 529px;
+    width: 700px;
+    height: 629px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -22,8 +22,8 @@
 
 .create-page-container>.create-page-image>img,
 .edit-page-container>.edit-page-image>img {
-    width: 250px;
-    height: 405px;
+    width: 350px;
+    height: 505px;
     object-fit: cover;
     object-position: center;
     box-shadow: 2px 2px 6px 4px #9dacf7;
@@ -106,3 +106,4 @@
 .create-page-image > img {
     object-fit:cover
 }
+
