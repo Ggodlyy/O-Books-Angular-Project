@@ -53,3 +53,7 @@ a {
 form > p {
     text-align: center;
 }
+
+.error {
+  color: red;
+}

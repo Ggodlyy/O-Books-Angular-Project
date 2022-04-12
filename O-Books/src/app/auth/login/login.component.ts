@@ -18,4 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loginHandler(): void {
+    console.log(this.loginFormGroup.controls['password'].errors);
+  }
 }
