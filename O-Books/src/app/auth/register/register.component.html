@@ -38,15 +38,18 @@
 
             <ng-container *ngIf="passwordsGroup.controls['repass'].touched && passwordsGroup.controls['repass'].invalid" >
 
-              <p  class="error">
+              <p *ngIf="passwordsGroup.controls['repass'].errors.passwordMissmatch"  class="error">
                 Passwords do not match!
               </p>
-  
-          
+
             </ng-container>
           </div>
 
-        
+          <ng-container *ngIf="!validRepass">
+            <p class="error">
+              Passwords do not match!
+            </p>
+          </ng-container>
 
           <button [disabled]="registerFormGroup.invalid"  class="registerbtn">Register</button>
         </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/core/user.service';
 import { emailValidator } from '../utils';
 
 @Component({
@@ -14,12 +15,15 @@ export class LoginComponent implements OnInit {
     'password': new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    ) { }
 
   ngOnInit(): void {
   }
 
   loginHandler(): void {
-    console.log(this.loginFormGroup.value);
+    // this.userService.login$()
   }
 }
