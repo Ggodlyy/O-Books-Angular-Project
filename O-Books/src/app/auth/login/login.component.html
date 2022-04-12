@@ -3,6 +3,12 @@
     <div class="container">
       <h1 class="title">Login</h1>
 
+      <div *ngIf="errorMessage">
+        <p class="error">
+          {{errorMessage}}
+        </p>
+      </div>
+
       <label for="email"><b>Email</b></label>
       <input formControlName="email" type="text" placeholder="Enter Email" name="email" id="email" [class.input-error]="loginFormGroup.controls['email'].touched && loginFormGroup.controls['email'].invalid">
 

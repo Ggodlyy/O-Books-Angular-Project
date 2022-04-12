@@ -10,6 +10,8 @@ import { emailValidator } from '../utils';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  errorMessage: string;
 
   loginFormGroup = this.formBuilder.group({
     'email': new FormControl('', [Validators.required, emailValidator]),
@@ -26,8 +28,13 @@ export class LoginComponent implements OnInit {
   }
 
   loginHandler(): void {
-    this.userService.login$(this.loginFormGroup.value).subscribe(() => {
-      this.router.navigate(['/home']);
+    this.errorMessage = '';
+    this.userService.login$(this.loginFormGroup.value).subscribe({
+      next: user => {
+        this.router.navigate(['/home']);
+      },error: (err) => {
+        this.errorMessage = err.error.message;
+      }
     })
   }
 }
