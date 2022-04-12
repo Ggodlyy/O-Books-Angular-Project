@@ -42,7 +42,7 @@
                                 <a class="nav-link tm-nav-link" href="contact.html">{{currentUser.email}}'s Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tm-nav-link" routerLink="/logout">Logout</a>
+                                <a class="nav-link tm-nav-link" (click)="logoutHandler()" >Logout</a>
                             </li>
                         </ul>
                     </div>

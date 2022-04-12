@@ -16,10 +16,19 @@ export class HeaderComponent implements OnInit {
   get currentUser(): IUser {
     return this.userService.currentUser;
   }
+
+  
  
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  logoutHandler() {
+    this.userService.logout$().subscribe(data => console.log(data));
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('accessToken');
+    sessionStorage.removeItem('_id');
   }
 
 }

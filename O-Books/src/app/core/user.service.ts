@@ -27,8 +27,11 @@ export class UserService {
       sessionStorage.setItem('accessToken', user.accessToken);
       sessionStorage.setItem('_id', user._id);
       this.currentUser = user
-    }))
+    }));
+  }
 
-  
+  logout$() { 
+    this.currentUser = null;
+    return this.httpClient.get(`${environment.apiUrl}/users/logout`)
   }
 }
