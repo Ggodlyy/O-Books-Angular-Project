@@ -9,6 +9,7 @@ const schema = new Schema({
     price: { type: Number, required: true },
     owner: { type: ObjectId, ref: 'User' },
     likes: { type: [ObjectId], ref: 'User' },
+    boughtBookUsers: { type: [ObjectId], ref: 'User', default: [] },
 });
 
 const Item = model('Item', schema);

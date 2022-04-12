@@ -1,0 +1,26 @@
+.book-list-item {
+    display: flex;
+    justify-content: space-around;
+    border: solid white 4px;
+    border-radius: 4px;
+    padding: 2em;
+}
+
+.book-list-item-content {
+    font-size: 21px;
+    padding: 1em;
+}
+
+.book-list-item-details-btn {
+    padding-left: 20px;
+}
+
+.btn-details {
+    border: solid white 2px;
+    border-radius: 6px;
+    padding: 15px;
+    background-color: rgb(13, 110, 253);
+    margin-top: 4em;
+    color: white;
+    font-weight: bold;
+}
