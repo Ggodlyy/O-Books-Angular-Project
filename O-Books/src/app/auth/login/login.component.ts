@@ -20,6 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginHandler(): void {
-    console.log(this.loginFormGroup);
+    console.log(this.loginFormGroup.value);
   }
 }

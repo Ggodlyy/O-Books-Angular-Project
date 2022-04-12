@@ -29,7 +29,14 @@ export class RegisterComponent implements OnInit {
   }
 
   registerHandler(): void {
-    console.log(this.registerFormGroup.value);
+    const { email, passwords} = this.registerFormGroup.value;
+
+    const body = {
+      email: email,
+      password: passwords.password
+    };
+
+    console.log(body);
   }
 
 }
