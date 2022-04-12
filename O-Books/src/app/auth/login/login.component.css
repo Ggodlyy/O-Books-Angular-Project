@@ -12,13 +12,14 @@
   padding: 16px;
 }
 
-input[type=text], input[type=password] {
+input {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
-  border: none;
   background: #f1f1f1;
+  border-left-width: 10px;
+  border-left-color:#04AA6D;
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -57,4 +58,8 @@ form > p {
 
 .error {
   color: red;
+}
+
+.input-error {
+  border-left-color:red;
 }

@@ -1,22 +1,32 @@
-<div class="register-form">
+<div class="register-form" [formGroup]="registerFormGroup" (ngSubmit)="registerHandler()">
     <form>
         <div class="container">
           <h1 class="title">Register</h1>
     
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" id="email">
+          <input formControlName="email" type="text" placeholder="Enter Email" name="email" id="email" [class.input-error]="registerFormGroup.controls['email'].touched && registerFormGroup.controls['email'].invalid">
       
-          
+          <ng-container *ngIf="registerFormGroup.controls['email'].touched && registerFormGroup.controls['email'].invalid">
+            <p *ngIf="registerFormGroup.controls['email'].errors.required" class="error">
+              Emails is required!
+            </p>
 
+            <p *ngIf="!registerFormGroup.controls['email'].errors.required && registerFormGroup.controls['email'].errors.email" class="error">
+              Must be a valid email!
+            </p>
+          </ng-container>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" id="password">
-      
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="repass" id="repass">
-       
-      
-          <button type="submit" class="registerbtn">Register</button>
+          <div formGroupName="passwords">
+            <label for="psw"><b>Password</b></label>
+            <input formControlName="password" type="password" placeholder="Enter Password" name="password" id="password" [class.input-error]="registerFormGroup.controls['password'].touched && registerFormGroup.controls['password'].invalid">
+        
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input formControlName="repass" type="password" placeholder="Repeat Password" name="repass" id="repass" [class.input-error]="registerFormGroup.controls['repass'].touched && registerFormGroup.controls['repass'].invalid">
+          </div>
+
+        
+
+          <button [disabled]="registerFormGroup.invalid" class="registerbtn">Register</button>
         </div>
           <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
       </form>
