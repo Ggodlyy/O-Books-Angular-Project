@@ -1,1 +1,53 @@
-<p>add-book works!</p>
+<section id="create-page">
+
+    <article class="create-page-container">
+      <form action="/create" method="POST" class="create-page-form">
+        <h2>Create a book</h2>
+
+        <label for="title">title:</label>
+        <input
+          type="text"
+          id="title"
+          placeholder="title"
+          name="title"
+          value=""
+        />
+
+        <label for="author">author:</label>
+        <input
+          type="text"
+          id="author"
+          placeholder="author"
+          name="author"
+          value=""
+        />
+
+        <label for="genre">genre:</label>
+        <input
+          type="text"
+          id="genre"
+          placeholder="genre"
+          name="genre"
+          value=""
+        />
+
+        <label for="img">Book image:</label>
+        <input
+          type="text"
+          id="img"
+          placeholder="Book image"
+          name="img"
+          value=""
+        />
+
+        <article class="create-page-button">
+          <button class="btn-create">Create</button>
+        </article>
+      </form>
+
+      <article class="create-page-image">
+        <img src="https://www.osboha180.com/rack/assets/img/add.png" alt="image"  class="book-i"/>
+      </article>
+    </article>
+
+  </section>
