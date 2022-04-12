@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/core/user.service';
 import { emailValidator, passwordMatch } from '../utils';
 
 @Component({
@@ -23,20 +25,26 @@ export class RegisterComponent implements OnInit {
     })
   })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   registerHandler(): void {
-    const { email, passwords} = this.registerFormGroup.value;
+    const { email, passwords } = this.registerFormGroup.value;
 
     const body = {
       email: email,
       password: passwords.password
     };
 
-    console.log(body);
+    this.userService.register$(body).subscribe(() => {
+      this.router.navigate(['/home']);
+    })
   }
 
 }
