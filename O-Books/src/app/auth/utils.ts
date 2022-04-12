@@ -11,3 +11,13 @@ export function emailValidator(control: AbstractControl): ValidationErrors | nul
 
     return null;
 }
+
+export function passwordMatch(passwordFormControl: AbstractControl) {
+    return (rePassFormControl: AbstractControl) => {
+        if(passwordFormControl.value !== rePassFormControl.value) {
+            return {
+                passwordMatch: true
+            }
+        }
+    }
+}

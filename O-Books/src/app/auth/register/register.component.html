@@ -17,16 +17,38 @@
           </ng-container>
 
           <div formGroupName="passwords">
+
             <label for="psw"><b>Password</b></label>
-            <input formControlName="password" type="password" placeholder="Enter Password" name="password" id="password" [class.input-error]="registerFormGroup.controls['password'].touched && registerFormGroup.controls['password'].invalid">
+            <input formControlName="password" type="password" placeholder="Enter Password" name="password" id="password" [class.input-error]="passwordsGroup.controls['password'].touched && passwordsGroup.controls['password'].invalid">
+
+
+            <ng-container *ngIf="passwordsGroup.controls['password'].touched && passwordsGroup.controls['password'].invalid" >
+
+              <p *ngIf="passwordsGroup.controls['password'].errors.required"  class="error">
+                Password is required!
+              </p>
+  
+              <p *ngIf="passwordsGroup.controls['password'].errors.minlength" class="error">
+                Password must be at least 3 characters long!
+              </p>
+            </ng-container>
         
             <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input formControlName="repass" type="password" placeholder="Repeat Password" name="repass" id="repass" [class.input-error]="registerFormGroup.controls['repass'].touched && registerFormGroup.controls['repass'].invalid">
+            <input formControlName="repass" type="password" placeholder="Repeat Password" name="repass" id="repass" [class.input-error]="passwordsGroup.controls['repass'].touched && passwordsGroup.controls['repass'].invalid">
+
+            <ng-container *ngIf="passwordsGroup.controls['repass'].touched && passwordsGroup.controls['repass'].invalid" >
+
+              <p  class="error">
+                Passwords do not match!
+              </p>
+  
+          
+            </ng-container>
           </div>
 
         
 
-          <button [disabled]="registerFormGroup.invalid" class="registerbtn">Register</button>
+          <button [disabled]="registerFormGroup.invalid"  class="registerbtn">Register</button>
         </div>
           <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
       </form>
