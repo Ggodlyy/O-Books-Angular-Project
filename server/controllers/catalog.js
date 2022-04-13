@@ -39,17 +39,19 @@ router.get('/:id', preload(), (req, res) => {
 
 router.put('/:id', preload(), isOwner(), async (req, res) => {
     const itemId = req.params.id;
-    const item = {
+
+    const book = {
         title: req.body.title,
         author: req.body.author,
-        description: req.body.description,
-        price: req.body.price,
+        genre: req.body.genre,
         img: req.body.img,
-        owner: req.user._id
-    };
+        description: req.body.description,
+        price: Number(req.body.price),
+        owner: req.user._id,
+    }
 
     try {
-        const result = await api.update(itemId, item);
+        const result = await api.update(itemId, book);
         res.json(result);
     } catch (err) {
         console.error(err.message);

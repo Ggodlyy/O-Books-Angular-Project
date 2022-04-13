@@ -33,4 +33,14 @@ export class BookService {
     return this.http.get<IBook>(`${apiUrl}/data/catalog/${bookId}`);
   }
 
+  editBookById$(bookId, body): Observable<IBook> {
+    const token = sessionStorage.getItem('accessToken');
+
+    if (token) {
+      return this.http.put<IBook>(`${apiUrl}/data/catalog/${bookId}`, body, { headers: new HttpHeaders({ 'X-Authorization': token }) })
+    } else {
+      return this.http.put<IBook>(`${apiUrl}/data/catalog/${bookId}`, body);
+    }
+  }
+
 }

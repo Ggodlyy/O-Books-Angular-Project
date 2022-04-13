@@ -19,13 +19,12 @@ function getById(id) {
 async function update(id, item) {
     const existing = await Book.findById(id);
 
-    existing.title = item.make;
-    existing.author = item.model;
+    existing.title = item.title;
+    existing.author = item.author;
     existing.genre = item.genre;
     existing.description = item.description;
     existing.price = item.price;
     existing.img = item.img;
-
 
     await existing.save();
 
