@@ -16,7 +16,6 @@ export class BooksListComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.loadBookList$().subscribe(booklist => {
       this.bookList = booklist;
-      console.log(this.bookList);
     })
   }
 

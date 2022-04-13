@@ -27,7 +27,7 @@ export class BookListItemDetailsComponent implements OnInit {
       const bookId = params['bookId'];
       this.bookService.loadBookById$(bookId).subscribe(book => {
         this.book = book;
-        console.log(this.currentUser);
+
         if(this.book.owner === this.currentUser?._id) {
           this.isOwner = true;
         }
