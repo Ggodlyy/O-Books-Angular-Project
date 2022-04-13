@@ -4,78 +4,21 @@
 
 <section id="book-list">
 
-    <!-- <div *ngIf=""></div> -->
-
-
-    <!-- {{ngFor book-list}} -->
-    <app-book-list-item></app-book-list-item>
-
-    <!-- {{ book-list-item}} -->
-    <article class="book-list-item">
-        <article class="book-list-item-image">
-            <img src="" alt="book-icon" class="book-img" />
-        </article>
-
-        <article class="book-list-item-content">
-            <p>title</p>
-            <p>genre</p>
-            <p>author</p>
-            <p>price</p>
-        </article>
-
-        <article class="book-list-item-details-btn">
-            <a href="/book-list-item-details" class="btn-details">Details</a>
-        </article>
-    </article>
-
-    <article class="book-list-item">
-        <article class="book-list-item-image">
-            <img src="" alt="book-icon" />
-        </article>
-
-        <article class="book-list-item-content">
-
-            <h2>title</h2>
-            <h3>genre</h3>
-            <article class="book-list-item-author-content">
-                <p>author</p>
+    <div *ngIf="bookList">
+        <app-book-list-item *ngFor="let book of bookList" [book]="book"></app-book-list-item>
+        <div *ngIf="bookList.length === 0">
+            <article class="no-available-books">
+                <h1>Library is empty.</h1>
+                <a routerLink="add-book">Add a book</a>
             </article>
-        </article>
-
-        <article class="book-list-item-details-btn">
-            <a href="/book-list-item-details" class="btn-details">Details</a>
-        </article>
-    </article>
-
-    <article class="book-list-item">
-        <article class="book-list-item-image">
-            <img src="" alt="book-icon" />
-        </article>
-
-        <article class="book-list-item-content">
-
-            <h2>title</h2>
-            <h3>genre</h3>
-            <article class="book-list-item-author-content">
-                <p>author</p>
-            </article>
-        </article>
-
-        <article class="book-list-item-details-btn">
-            <a href="/book-list-item-details" class="btn-details">Details</a>
-        </article>
-    </article>
+        </div>
+    </div>
 
 
 
-
-    <!-- {{else}} -->
-
-    <!-- <article class="no-available-books">
-      <h1>Library is empty.</h1>
-      <h2>add a book</h2>
-     </article> -->
-
+    <div *ngIf="!bookList">
+        Loading...
+    </div>
 
 
 </section>
