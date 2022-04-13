@@ -6,6 +6,7 @@ import { BookListItemComponent } from './book-list-item/book-list-item.component
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule } from '@angular/forms';
 import { BookListItemDetailsComponent } from './book-list-item-details/book-list-item-details.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 
 
@@ -14,7 +15,8 @@ import { BookListItemDetailsComponent } from './book-list-item-details/book-list
     BooksListComponent,
     BookListItemComponent,
     AddBookComponent,
-    BookListItemDetailsComponent
+    BookListItemDetailsComponent,
+    EditBookComponent
   ],
   imports: [
     CommonModule,

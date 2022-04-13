@@ -22,7 +22,7 @@
 
         <ng-container *ngIf="isOwner">
             <div class="edit-delete-btns-main">
-                <a class="edit-delete-btns" href="">Edit</a>
+                <a class="edit-delete-btns" [routerLink]="['/edit', book._id]">Edit</a>
                 <a class="edit-delete-btns" href="">Delete</a>
             </div>
         </ng-container>
