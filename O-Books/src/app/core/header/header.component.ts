@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IUser } from '../interfaces/user';
 import { UserService } from '../user.service';
 
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   
  
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('accessToken');
     sessionStorage.removeItem('_id');
+    this.router.navigate(['/home']);
   }
 
 }
