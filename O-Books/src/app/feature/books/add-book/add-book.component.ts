@@ -9,6 +9,8 @@ import { BookService } from 'src/app/core/book.service';
 })
 export class AddBookComponent implements OnInit {
 
+  errorMessage: string;
+
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,7 @@ export class AddBookComponent implements OnInit {
         console.log(book);
       },
       error: (err) => {
-        console.error(err);
+        this.errorMessage = err.error.message;
       }
     })
   }
