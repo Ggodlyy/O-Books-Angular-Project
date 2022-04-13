@@ -29,4 +29,8 @@ export class BookService {
     }
   }
 
+  loadBookById$(bookId): Observable<IBook> {
+    return this.http.get<IBook>(`${apiUrl}/data/catalog/${bookId}`);
+  }
+
 }

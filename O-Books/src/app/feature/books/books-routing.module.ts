@@ -16,7 +16,7 @@ const routes: Routes = [
         component: AddBookComponent
     },
     {
-        path: 'library:id',
+        path: 'library/:bookId',
         component: BookListItemDetailsComponent
     }
    
