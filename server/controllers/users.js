@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { isGuest, isAuth } = require('../middlewares/guards');
+const { isGuest, isAuth} = require('../middlewares/guards');
 const { register, login, logout, getProfile } = require('../services/users');
 const mapErrors = require('../utils/mapper');
 
@@ -35,7 +35,7 @@ router.get('/logout', (req, res) => {
     res.status(204).end();
 });
 
-router.get('/profile', isAuth, async (req, res) => {
+router.get('/profile', async (req, res) => {
     try {
         const { _id: userId } = req.user;
         const user = await getProfile(userId);

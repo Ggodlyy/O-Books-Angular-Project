@@ -5,6 +5,7 @@ const mapErrors = require('../utils/mapper');
 const preload = require('../middlewares/preload');
 
 
+
 router.get('/', async (req, res) => {
     const data = await api.getAll();
     res.json(data);

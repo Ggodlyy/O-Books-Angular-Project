@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { IUser } from './interfaces/user';
 import { environment } from 'src/environments/environment';
+
+const apiUrl = environment.apiUrl;
 
 @Injectable()
 export class UserService {
@@ -33,5 +35,15 @@ export class UserService {
   logout$() { 
     this.currentUser = null;
     return this.httpClient.get(`${environment.apiUrl}/users/logout`)
+  }
+
+  getProfile$() {
+    const token = sessionStorage.getItem('accessToken');
+
+    if (token) {
+      return this.httpClient.get<IUser>(`${apiUrl}/users/profile`,{ headers: new HttpHeaders({ 'X-Authorization': token }) })
+    } else {
+      return this.httpClient.get<IUser>(`${apiUrl}/users/profile`)
+    }
   }
 }
