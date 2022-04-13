@@ -8,8 +8,8 @@
 .create-page-container,
 .edit-page-container {
     background-color: #fff;
-    width: 700px;
-    height: 629px;
+    width: 900px;
+    height: 829px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -56,13 +56,9 @@
     color: white;
 }
 
-.create-page-form>input,
-.create-page-form>button,
-.edit-page-form>input,
-.edit-page-form>button {
+.create-page-form input {
     width: 100%;
     padding: 12px;
-    border: solid white 4px;
     border-radius: 3px;
 }
 
@@ -107,16 +103,17 @@
     object-fit: cover
 }
 
-.form-context>input {
+
+.create-page-form input {
     border-left-width: 10px;
     border-left-color: #04AA6D;
 }
 
-.form-context>textarea {
+.create-page-form textarea {
     border-left-width: 10px;
-    ;
     border-left-color: #04AA6D;
 }
+
 
 .error {
     color: red;

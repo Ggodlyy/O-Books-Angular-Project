@@ -4,16 +4,24 @@
       <form #addBookForm="ngForm" (ngSubmit)="submitBook(addBookForm)" class="create-page-form">
         <h2>Create a book</h2>
 
-        <div class="form-context">
+    
             <label for="title">title:</label>
             <input
+            #titleName="ngModel"
               type="text"
               id="title"
               placeholder="title"
               name="title"
               value=""
               ngModel
+              required
             />
+
+            <ng-container *ngIf="titleName.touched && titleName.invalid">
+              <p class="error">
+                Title is required!
+              </p>
+            </ng-container>
     
             <label for="author">author:</label>
             <input
@@ -64,7 +72,7 @@
               name="description"
               ngModel
             > </textarea>
-        </div>
+ 
 
         <article class="create-page-button">
           <button [disabled]="addBookForm.invalid" class="btn-create">Create</button>
