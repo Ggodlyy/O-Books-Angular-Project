@@ -44,6 +44,11 @@ function logout(token) {
     blacklist.push(token);
 }
 
+async function getProfile(userId) {
+    const user = await User.findOne({ _id: userId });
+    return user;
+}
+
 function createSession(user) {
     return {
         email: user.email,
@@ -73,5 +78,6 @@ module.exports = {
     register,
     login,
     logout,
+    getProfile,
     verifySession
 };

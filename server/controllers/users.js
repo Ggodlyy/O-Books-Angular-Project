@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { isGuest } = require('../middlewares/guards');
-const { register, login, logout } = require('../services/users');
+const { isGuest, isAuth } = require('../middlewares/guards');
+const { register, login, logout, getProfile } = require('../services/users');
 const mapErrors = require('../utils/mapper');
 
 
@@ -34,5 +34,17 @@ router.get('/logout', (req, res) => {
     logout(req.user?.token);
     res.status(204).end();
 });
+
+router.get('/profile', isAuth, async (req, res) => {
+    try {
+        const { _id: userId } = req.user;
+        const user = await getProfile(userId);
+        res.json(user);
+    } catch (err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({ message: error });
+    }
+})
 
 module.exports = router;
