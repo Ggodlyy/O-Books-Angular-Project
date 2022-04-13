@@ -61,8 +61,8 @@
 .edit-page-form>input,
 .edit-page-form>button {
     width: 100%;
-    border: none;
     padding: 12px;
+    border: solid white 4px;
     border-radius: 3px;
 }
 
@@ -103,7 +103,25 @@
     color: #656880;
 }
 
-.create-page-image > img {
-    object-fit:cover
+.create-page-image>img {
+    object-fit: cover
 }
 
+.form-context>input {
+    border-left-width: 10px;
+    border-left-color: #04AA6D;
+}
+
+.form-context>textarea {
+    border-left-width: 10px;
+    ;
+    border-left-color: #04AA6D;
+}
+
+.error {
+    color: red;
+}
+
+.input-error {
+    border-left-color: red;
+}

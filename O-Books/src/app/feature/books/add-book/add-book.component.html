@@ -67,7 +67,7 @@
         </div>
 
         <article class="create-page-button">
-          <button class="btn-create">Create</button>
+          <button [disabled]="addBookForm.invalid" class="btn-create">Create</button>
         </article>
       </form>
 
