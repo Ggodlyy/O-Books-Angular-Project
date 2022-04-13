@@ -13,6 +13,12 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
+ loadBookList$(): Observable<IBook[]> {
+   return this.http.get<IBook[]>(`${apiUrl}/data/catalog`);
+ }
+
+
+
   addBook$(body): Observable<IBook> {
     const token = sessionStorage.getItem('accessToken');
 
@@ -22,4 +28,5 @@ export class BookService {
       return this.http.post<IBook>(`${apiUrl}/data/catalog`, body)
     }
   }
+
 }
