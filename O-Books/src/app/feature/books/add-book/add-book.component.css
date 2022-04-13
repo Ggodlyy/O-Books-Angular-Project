@@ -8,8 +8,8 @@
 .create-page-container,
 .edit-page-container {
     background-color: #fff;
-    width: 900px;
-    height: 829px;
+    width: 1000px;
+    height: 929px;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -117,8 +117,11 @@
 
 .error {
     color: red;
+    font-size: 20px;
 }
 
 .input-error {
     border-left-color: red;
 }
+
+

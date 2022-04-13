@@ -5,7 +5,7 @@
         <h2>Create a book</h2>
 
     
-            <label for="title">title:</label>
+            <label for="title">Title:</label>
             <input
             #titleName="ngModel"
               type="text"
@@ -15,63 +15,123 @@
               value=""
               ngModel
               required
+              minlength="4"
             />
 
             <ng-container *ngIf="titleName.touched && titleName.invalid">
-              <p class="error">
+              <p *ngIf="titleName.errors.required" class="error">
                 Title is required!
+              </p>
+              <p *ngIf="titleName.errors.minlength" class="error">
+                Title must be at least 4 characters long!
               </p>
             </ng-container>
     
-            <label for="author">author:</label>
+            <label for="author">Author:</label>
             <input
+            #author="ngModel"
               type="text"
               id="author"
               placeholder="author"
               name="author"
               value=""
               ngModel
+              required
+              minlength="4"
             />
+
+            <ng-container *ngIf="author.touched && author.invalid">
+              <p *ngIf="author.errors.required" class="error">
+                Author is required!
+              </p>
+              <p *ngIf="author.errors.minlength" class="error">
+                Author must be at least 4 characters long!
+              </p>
+            </ng-container>
     
-            <label for="genre">genre:</label>
+            <label for="genre">Genre:</label>
             <input
+            #genre="ngModel"
               type="text"
               id="genre"
               placeholder="genre"
               name="genre"
               value=""
               ngModel
+              required
+              minlength="4"
             />
+
+            <ng-container *ngIf="genre.touched && genre.invalid">
+              <p *ngIf="genre.errors.required" class="error">
+                Genre is required!
+              </p>
+              <p *ngIf="genre.errors.minlength" class="error">
+                Genre must be at least 4 characters long!
+              </p>
+            </ng-container>
     
             <label for="img">Book image:</label>
             <input
+            #bookImg="ngModel"
               type="text"
               id="img"
               placeholder="Book image"
               name="img"
               value=""
               ngModel
+              required
+              minlength="4"
             />
+
+            <ng-container *ngIf="bookImg.touched && bookImg.invalid">
+              <p *ngIf="bookImg.errors.required" class="error">
+                Book image is required!
+              </p>
+              <p *ngIf="bookImg.errors.minlength" class="error">
+                Book image must be at least 4 characters long!
+              </p>
+            </ng-container>
     
     
-            <label for="price">price:</label>
+            <label for="price">Price:</label>
             <input
+            #price="ngModel"
               type="number"
               id="price"
               placeholder="price"
               name="price"
               value=""
               ngModel
+              required
             />
 
-            <label for="description">description:</label>
+            <ng-container *ngIf="price.touched && price.invalid">
+              <p *ngIf="price.errors.required" class="error">
+                Price is required!
+              </p>
+            </ng-container>
+
+            <label for="description" class="descLabel">Description:</label>
             <textarea
+            #description="ngModel"
               type="text"
               id="description"
               placeholder="description"
               name="description"
               ngModel
+             required
+             minlength="10"
             > </textarea>
+
+            <ng-container *ngIf="description.touched && description.invalid">
+              <p *ngIf="description.errors.required" class="error">
+                Description is required!
+              </p>
+              <p *ngIf="description.errors.minlength" class="error">
+                Description must be at least 10 characters long!
+              </p>
+            </ng-container>
  
 
         <article class="create-page-button">
