@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BookService } from 'src/app/core/book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -8,13 +9,20 @@ import { NgForm } from '@angular/forms';
 })
 export class AddBookComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
   }
 
   submitBook(addBookForm: NgForm): void {
-    console.log(addBookForm);
+    this.bookService.addBook$(addBookForm.value).subscribe({
+      next: (book) => {
+        console.log(book);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 
 }

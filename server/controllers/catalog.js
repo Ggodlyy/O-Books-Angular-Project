@@ -15,9 +15,10 @@ router.post('/', isAuth(), async (req, res) => {
     const item = {
         title: req.body.title,
         author: req.body.author,
+        genre: req.body.genre,
+        img: req.body.img,
         description: req.body.description,
         price: req.body.price,
-        img: req.body.img,
         owner: req.user._id
     };
 

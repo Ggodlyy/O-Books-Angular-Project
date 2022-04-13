@@ -21,6 +21,7 @@ async function update(id, item) {
 
     existing.title = item.make;
     existing.author = item.model;
+    existing.genre = item.genre;
     existing.description = item.description;
     existing.price = item.price;
     existing.img = item.img;
