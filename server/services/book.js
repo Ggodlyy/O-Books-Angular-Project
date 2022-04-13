@@ -37,10 +37,24 @@ async function deleteById(id) {
 }
 
 
+async function like(id, userId) {
+    const book = await Book.findById(id);
+
+    if (book.likes.includes(userId)) {
+        throw new Error('User has already liked');
+    }
+
+    book.likes.push(userId);
+
+    await book.save();
+}
+
+
 module.exports = {
     getAll,
     create,
     getById,
     update,
-    deleteById
+    deleteById,
+    like
 };
