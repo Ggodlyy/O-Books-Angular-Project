@@ -43,4 +43,9 @@ export class BookService {
     }
   }
 
+  removeBook$(bookId) {
+    const token = sessionStorage.getItem('accessToken');
+    return this.http.delete(`${apiUrl}/data/catalog/${bookId}`, { headers: new HttpHeaders({ 'X-Authorization': token }) });
+  }
+
 }

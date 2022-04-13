@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from 'src/app/core/book.service';
 import { IBook } from 'src/app/core/interfaces/book';
 import { UserService } from 'src/app/core/user.service';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/core/user.service';
 })
 export class BookListItemDetailsComponent implements OnInit {
   book: IBook;
-  
+
   isOwner: boolean = false;
   isLoggedIn: boolean = this.userService.isLogged;
   currentUser = this.userService.currentUser;
@@ -19,7 +19,8 @@ export class BookListItemDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private bookService: BookService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,14 +29,21 @@ export class BookListItemDetailsComponent implements OnInit {
       this.bookService.loadBookById$(bookId).subscribe(book => {
         this.book = book;
 
-        if(this.book.owner === this.currentUser?._id) {
+        if (this.book.owner === this.currentUser?._id) {
           this.isOwner = true;
         }
       })
-    })
+    });
   }
 
-
-
+  deleteBook() {
+    this.activatedRoute.params.subscribe(params => {
+      const bookId = params['bookId'];
+      this.bookService.removeBook$(bookId).subscribe(result => {
+        console.log(result)
+        this.router.navigate(['/library']);
+      });
+    })
+  }
 
 }
