@@ -1,18 +1,17 @@
 <article class="book-list-item">
     <article class="book-list-item-image">
-      <img src="" alt="book-icon" />
+      <img [src]="book.img" alt="book-icon" class="book-img"/>
     </article>
   
     <article class="book-list-item-content">
-      <p>title</p>
-      <p>genre</p>
-      <p>author</p>
+      <p>{{book.title}}</p>
+      <p>{{book.genre}}</p>
+      <p>{{book.author}}</p>
     </article>
   
     <article class="book-list-item-details-btn">
       <div class="book-list-item-price">
-
-        <p>price</p>
+        <p>{{book.price}} dollars</p>
       </div>
       <a href="/book-list-item-details" class="btn-details">Details</a>
     </article>

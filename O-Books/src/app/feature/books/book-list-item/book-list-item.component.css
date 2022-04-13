@@ -25,3 +25,12 @@
     font-weight: bold;
 }
 
+.book-list-item-image {
+
+}
+
+.book-img {
+    height: 250px;
+    width: 150px;
+    object-fit: cover;
+}
