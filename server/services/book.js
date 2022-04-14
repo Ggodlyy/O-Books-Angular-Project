@@ -48,6 +48,18 @@ async function like(id, userId) {
     await book.save();
 }
 
+async function buy(id, userId) {
+    const book = await Book.findById(id);
+
+    if (book.boughtBookUsers.includes(userId)) {
+        throw new Error('User has already purchased this book');
+    }
+
+    book.boughtBookUsers.push(userId);
+
+    await book.save();
+}
+
 
 module.exports = {
     getAll,
@@ -55,5 +67,6 @@ module.exports = {
     getById,
     update,
     deleteById,
-    like
+    like,
+    buy,
 };
