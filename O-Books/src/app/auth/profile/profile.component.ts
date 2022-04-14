@@ -9,9 +9,8 @@ import { UserService } from 'src/app/core/user.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit {
 
-  bookList: IBook[];
   myBookList: IBook[];
 
   currentUser: IUser;
@@ -24,8 +23,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         this.currentUser = user;
 
         this.bookService.loadBookList$().subscribe(booklist => {
-          this.bookList = booklist;
-          this.myBookList = this.bookList.filter(b => b.owner === this?.currentUser._id);
+          this.myBookList = booklist.filter(b => b.owner === this?.currentUser._id);
         });
       },
       error: (err) => {
@@ -37,9 +35,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit(): void {
-   
-
-  }
+ 
 
 }
