@@ -8,7 +8,7 @@ const schema = new Schema({
     description: { type: String, required: true, minlength: [10, 'Description must be at least 10 characters long'] },
     price: { type: Number, required: true },
     owner: { type: ObjectId, ref: 'User' },
-    likes: { type: [ObjectId], ref: 'User' },
+    likes: { type: [ObjectId], ref: 'User', default: [] },
     boughtBookUsers: { type: [ObjectId], ref: 'User', default: [] },
 });
 
