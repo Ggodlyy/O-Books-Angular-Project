@@ -1,16 +1,43 @@
 <article class="book-list">
     <h1>Library</h1>
+
+    <div class="form-filter">
+        <form #filterForm="ngForm" (ngSubmit)="filterBooks(filterForm)" class="filter">
+            <label for="genre">Filter by:</label>
+            <select name="genre" id="genre" ngModel>
+                <option value="any">any</option>
+                <option value="horror">horror</option>
+                <option value="fantasy">fantasy</option>
+                <option value="romance">romance</option>
+                <option value="mistery">mistery</option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+    </div>
 </article>
 
 
 
 <div *ngIf="bookList" id="book-list">
-    <app-book-list-item *ngFor="let book of bookList" [book]="book"></app-book-list-item>
-    <div *ngIf="bookList.length === 0">
-        <article class="no-available-books">
-            <h1>Library is empty.</h1>
-            <a routerLink="/add-book">Add a book</a>
-        </article>
+    <div *ngIf="filteredBookList?.length > 0" class="filtered book-info">
+        <app-book-list-item *ngFor="let book of filteredBookList" [book]="book"></app-book-list-item>
+    </div>
+
+    <ng-container *ngIf="filteredBookList?.length === 0">
+        <p>
+            No books for this genre!
+        </p>
+    </ng-container>
+
+    <div class="nonFiltered book-info" *ngIf="filteredBookList === undefined">
+        <app-book-list-item *ngFor="let book of bookList" [book]="book"></app-book-list-item>
+        <div *ngIf="bookList.length === 0">
+            <article class="no-available-books">
+                <h1>Library is empty.</h1>
+                <a routerLink="/add-book">Add a book</a>
+            </article>
+        </div>
     </div>
 </div>
 

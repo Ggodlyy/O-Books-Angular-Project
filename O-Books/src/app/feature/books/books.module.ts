@@ -16,7 +16,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     BookListItemComponent,
     AddBookComponent,
     BookListItemDetailsComponent,
-    EditBookComponent
+    EditBookComponent,
   ],
   imports: [
     CommonModule,

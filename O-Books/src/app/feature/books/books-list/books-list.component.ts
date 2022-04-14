@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { BookService } from 'src/app/core/book.service';
 import { IBook } from 'src/app/core/interfaces/book';
 
@@ -10,6 +11,7 @@ import { IBook } from 'src/app/core/interfaces/book';
 export class BooksListComponent implements OnInit {
 
   bookList: IBook[];
+  filteredBookList: IBook[];
 
   constructor(private bookService: BookService) { }
 
@@ -19,4 +21,14 @@ export class BooksListComponent implements OnInit {
     })
   }
 
+  filterBooks(filterForm: NgForm) {
+    let genre = filterForm.value.genre;
+
+    if (genre === 'any') {
+      this.filteredBookList = this.bookList;
+      return;
+    }
+
+    this.filteredBookList = this.bookList.filter(b => b.genre === genre);
+  }
 }
