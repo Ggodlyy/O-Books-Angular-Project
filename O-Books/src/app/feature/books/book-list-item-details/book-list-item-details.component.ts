@@ -17,6 +17,7 @@ export class BookListItemDetailsComponent implements OnInit {
   currentUser = this.userService.currentUser;
   likes: number;
   canLike: boolean = true;
+  canBuy: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -50,7 +51,6 @@ export class BookListItemDetailsComponent implements OnInit {
   }
 
   likeBook() {
-
     if (this.book.likes.includes(this.currentUser?._id)) {
       this.canLike = false;
       return;
@@ -61,9 +61,6 @@ export class BookListItemDetailsComponent implements OnInit {
 
       this.bookService.likeBook$(bookId).subscribe({
         next: data => {
-          console.log(data);
-          console.log(this.currentUser);
-
           if (!this.book.likes.includes(this.currentUser?._id)) {
             this.likes++;
             this.canLike = false;
@@ -74,6 +71,31 @@ export class BookListItemDetailsComponent implements OnInit {
         }
       });
     });
+  }
+
+  buyBook() {
+    if (this.book.boughtBookUsers.includes(this.currentUser?._id)) {
+      this.canBuy = false;
+      return;
+    }
+
+    this.activatedRoute.params.subscribe(params => {
+      const bookId = params['bookId'];
+
+      this.bookService.buyBook$(bookId).subscribe({
+        next: data => {
+          console.log(data);
+          console.log(this.currentUser);
+
+          if (!this.book.boughtBookUsers.includes(this.currentUser?._id)) {
+            this.canBuy = false;
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    })
   }
 
 }

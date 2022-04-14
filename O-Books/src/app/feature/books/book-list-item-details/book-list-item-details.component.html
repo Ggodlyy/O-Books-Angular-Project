@@ -15,19 +15,38 @@
         <p>Description: {{book?.description}}</p>
 
         <ng-container *ngIf="!isOwner">
-            <div *ngIf="isLoggedIn">
-                <p>Likes: {{likes}}</p>
-                <ng-container *ngIf="canLike">
-                    <button class="edit-delete-btns" (click)="likeBook()">Like</button>
-                </ng-container>
-                
-                <ng-container *ngIf="!canLike">
-                    <button disabled [class.canLike]="!canLike" class="edit-delete-btns" (click)="likeBook()">Already liked</button>
-                </ng-container>
-            </div>
+            <p>Likes: {{likes}}</p>
+
+            <section *ngIf="isLoggedIn" class="like-buy-btn">
+                <div class="like-functionality">
+                    <div *ngIf="isLoggedIn">
+                        <ng-container *ngIf="canLike">
+                            <button class="edit-delete-btns" (click)="likeBook()">Like</button>
+                        </ng-container>
+
+                        <ng-container *ngIf="!canLike">
+                            <button disabled [class.canLike]="!canLike" class="edit-delete-btns"
+                                (click)="likeBook()">Already liked</button>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="buy-functionality">
+                    <ng-container *ngIf="canBuy">
+                        <button class="edit-delete-btns" (click)="buyBook()">Buy</button>
+                    </ng-container>
+
+                    <ng-container *ngIf="!canBuy">
+                        <button disabled [class.canBuy]="!canBuy" class="edit-delete-btns" (click)="buyBook()">Already
+                            purchased</button>
+                    </ng-container>
+                </div>
+            </section>
+
 
             <div *ngIf="!isLoggedIn">
                 <button class="edit-delete-btns" routerLink="/login">Like</button>
+                <button class="edit-delete-btns" routerLink="/login">Buy</button>
             </div>
         </ng-container>
 

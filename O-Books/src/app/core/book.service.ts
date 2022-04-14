@@ -53,4 +53,9 @@ export class BookService {
     return this.http.get<IBook>(`${apiUrl}/data/catalog/like/${bookId}`, { headers: new HttpHeaders({ 'X-Authorization': token }) });
   }
 
+  buyBook$(bookId) {
+    const token = sessionStorage.getItem('accessToken');
+    return this.http.get<IBook>(`${apiUrl}/data/catalog/buy/${bookId}`, { headers: new HttpHeaders({ 'X-Authorization': token }) });
+  }
+
 }

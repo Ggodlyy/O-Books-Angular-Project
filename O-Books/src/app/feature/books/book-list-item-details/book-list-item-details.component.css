@@ -21,10 +21,17 @@
     color: white;
     margin: 30px;
     padding: 0.5em;
-    width: 110px;
     border-radius: 4px;
 }
 
 .canLike {
+    background-color: gray;
+}
+
+.like-buy-btn {
+    display: flex;
+}
+
+.canBuy {
     background-color: gray;
 }
