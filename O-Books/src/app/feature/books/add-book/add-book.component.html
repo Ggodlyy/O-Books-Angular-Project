@@ -55,28 +55,6 @@
               </p>
             </ng-container>
     
-            <label for="genre">Genre:</label>
-            <input
-            #genre="ngModel"
-              type="text"
-              id="genre"
-              placeholder="genre"
-              name="genre"
-              value=""
-              ngModel
-              required
-              minlength="4"
-            />
-
-            <ng-container *ngIf="genre.touched && genre.invalid">
-              <p *ngIf="genre.errors.required" class="error">
-                Genre is required!
-              </p>
-              <p *ngIf="genre.errors.minlength" class="error">
-                Genre must be at least 4 characters long!
-              </p>
-            </ng-container>
-    
             <label for="img">Book image:</label>
             <input
             #bookImg="ngModel"
@@ -136,6 +114,34 @@
               </p>
               <p *ngIf="description.errors.minlength" class="error">
                 Description must be at least 10 characters long!
+              </p>
+            </ng-container>
+
+            <label for="genre">Genre:</label>
+            <select #genre="ngModel" name="genre" id="genre" ngModel required>
+              <option value="horror">horror</option>
+              <option value="fantasy">fantasy</option>
+              <option value="romance">romance</option>
+              <option value="mistery">mistery</option>
+          </select>
+            <!-- <input
+            #genre="ngModel"
+              type="text"
+              id="genre"
+              placeholder="genre"
+              name="genre"
+              value=""
+              ngModel
+              required
+              minlength="4"
+            /> -->
+
+            <ng-container *ngIf="genre.touched && genre.invalid">
+              <p *ngIf="genre.errors.required" class="error">
+                Genre is required!
+              </p>
+              <p *ngIf="genre.errors.minlength" class="error">
+                Genre must be at least 4 characters long!
               </p>
             </ng-container>
  
