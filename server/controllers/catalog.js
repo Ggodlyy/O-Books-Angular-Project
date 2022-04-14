@@ -72,7 +72,7 @@ router.delete('/:id', preload(), isOwner(), async (req, res) => {
     }
 });
 
-router.get('/like/:id', preload(), async (req, res) => {
+router.get('/like/:id', preload(), isAuth(), async (req, res) => {
     try {
         const itemId = req.params.id;
         const userId = req.user._id;

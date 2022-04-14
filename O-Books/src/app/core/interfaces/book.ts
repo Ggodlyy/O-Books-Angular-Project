@@ -8,4 +8,5 @@ export interface IBook extends IBase {
     description: string;
     price: number;
     owner: string;
+    likes: string[];
 }

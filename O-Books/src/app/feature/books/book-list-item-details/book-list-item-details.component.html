@@ -16,7 +16,8 @@
 
         <ng-container *ngIf="isLoggedIn && !isOwner">
             <div>
-                buy
+                <p>Likes: {{likes}}</p>
+                <button [disabled]="!canLike"  class="edit-delete-btns" (click)="likeBook()">Like</button>
             </div>
         </ng-container>
 

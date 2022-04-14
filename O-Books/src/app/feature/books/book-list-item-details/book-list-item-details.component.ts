@@ -10,11 +10,13 @@ import { UserService } from 'src/app/core/user.service';
   styleUrls: ['./book-list-item-details.component.css']
 })
 export class BookListItemDetailsComponent implements OnInit {
-  book: IBook;
 
+  book: IBook;
   isOwner: boolean = false;
   isLoggedIn: boolean = this.userService.isLogged;
   currentUser = this.userService.currentUser;
+  likes: number;
+  canLike: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -28,6 +30,7 @@ export class BookListItemDetailsComponent implements OnInit {
       const bookId = params['bookId'];
       this.bookService.loadBookById$(bookId).subscribe(book => {
         this.book = book;
+        this.likes = this.book.likes.length;
 
         if (this.book.owner === this.currentUser?._id) {
           this.isOwner = true;
@@ -43,7 +46,31 @@ export class BookListItemDetailsComponent implements OnInit {
         console.log(result)
         this.router.navigate(['/library']);
       });
-    })
+    });
+  }
+
+  likeBook() {
+    if (this.canLike) {
+      console.log('clicked');
+      this.activatedRoute.params.subscribe(params => {
+        const bookId = params['bookId'];
+        this.bookService.likeBook$(bookId).subscribe({
+          next: data => {
+            console.log(data);
+            console.log(this.currentUser);
+
+            if (!this.book.likes.includes(this.currentUser?._id)) {
+              this.likes++;
+              this.canLike = false;
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+      });
+    }
+
   }
 
 }
