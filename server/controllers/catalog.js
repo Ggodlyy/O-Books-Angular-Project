@@ -72,4 +72,18 @@ router.delete('/:id', preload(), isOwner(), async (req, res) => {
     }
 });
 
+router.get('/like/:id', preload(), async (req, res) => {
+    try {
+        const itemId = req.params.id;
+        const userId = req.user._id;
+        await api.like(itemId, userId);
+        res.status(204).end();
+    } catch (err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({ message: error });
+    }
+
+})
+
 module.exports = router;
