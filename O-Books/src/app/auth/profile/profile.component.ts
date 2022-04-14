@@ -11,9 +11,10 @@ import { UserService } from 'src/app/core/user.service';
 })
 export class ProfileComponent implements OnInit {
 
+  bookList: IBook[];
   myBookList: IBook[];
-
   currentUser: IUser;
+  boughtBooks: IBook[];
 
   constructor(private userService: UserService, private bookService: BookService) { }
 
@@ -23,18 +24,22 @@ export class ProfileComponent implements OnInit {
         this.currentUser = user;
 
         this.bookService.loadBookList$().subscribe(booklist => {
+          this.bookList = booklist;
           this.myBookList = booklist.filter(b => b.owner === this?.currentUser._id);
+          this.boughtBooks = booklist.filter(b => b.boughtBookUsers.includes(this.currentUser._id));
+          console.log(this.boughtBooks);
         });
+
       },
       error: (err) => {
         console.log(err);
       }
     });
 
-  
+
 
   }
 
- 
+
 
 }
