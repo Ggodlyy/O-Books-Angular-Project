@@ -16,6 +16,7 @@ export class BookListItemDetailsComponent implements OnInit {
   isLoggedIn: boolean = this.userService.isLogged;
   currentUser = this.userService.currentUser;
   likes: number;
+
   canLike: boolean = true;
   canBuy: boolean = true;
 
@@ -84,11 +85,10 @@ export class BookListItemDetailsComponent implements OnInit {
 
       this.bookService.buyBook$(bookId).subscribe({
         next: data => {
-          console.log(data);
-          console.log(this.currentUser);
 
           if (!this.book.boughtBookUsers.includes(this.currentUser?._id)) {
             this.canBuy = false;
+            this.router.navigate(['/profile'])
           }
         },
         error: (err) => {
