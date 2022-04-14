@@ -22,6 +22,9 @@ import { EditBookComponent } from './edit-book/edit-book.component';
     CommonModule,
     BookRoutingModule,
     FormsModule
+  ],
+  exports: [
+    BookListItemComponent
   ]
 })
 export class BooksModule { }

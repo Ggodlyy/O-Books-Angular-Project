@@ -2,5 +2,24 @@
 
     <h1>Welcome {{currentUser?.email}}</h1>
 
+    <div *ngIf="myBookList">
+        <ng-container *ngIf="myBookList.length > 0">
+            <div class="my-books">
+                <h1>My books</h1>
+                <div class="books">
+                    <app-book-list-item *ngFor="let book of myBookList" [book]="book"></app-book-list-item>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="myBookList.length === 0">
+            <div class="my-books">
+                <h1>My books</h1>
+                <p>No books yet? Add one now <a routerLink="/add-book">Add</a></p>
+            </div>
+        </ng-container>
+
+    </div>
+
 
 </section>
