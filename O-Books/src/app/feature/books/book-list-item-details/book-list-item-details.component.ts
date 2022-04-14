@@ -50,27 +50,30 @@ export class BookListItemDetailsComponent implements OnInit {
   }
 
   likeBook() {
-    if (this.canLike) {
-      console.log('clicked');
-      this.activatedRoute.params.subscribe(params => {
-        const bookId = params['bookId'];
-        this.bookService.likeBook$(bookId).subscribe({
-          next: data => {
-            console.log(data);
-            console.log(this.currentUser);
 
-            if (!this.book.likes.includes(this.currentUser?._id)) {
-              this.likes++;
-              this.canLike = false;
-            }
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        });
-      });
+    if (this.book.likes.includes(this.currentUser?._id)) {
+      this.canLike = false;
+      return;
     }
 
+    this.activatedRoute.params.subscribe(params => {
+      const bookId = params['bookId'];
+
+      this.bookService.likeBook$(bookId).subscribe({
+        next: data => {
+          console.log(data);
+          console.log(this.currentUser);
+
+          if (!this.book.likes.includes(this.currentUser?._id)) {
+            this.likes++;
+            this.canLike = false;
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
   }
 
 }
