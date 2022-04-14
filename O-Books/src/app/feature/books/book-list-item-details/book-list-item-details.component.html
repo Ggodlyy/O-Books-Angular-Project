@@ -14,8 +14,8 @@
         <p>Price: {{book.price}}$</p>
         <p>Description: {{book?.description}}</p>
 
-        <ng-container *ngIf="isLoggedIn && !isOwner">
-            <div>
+        <ng-container *ngIf="!isOwner">
+            <div *ngIf="isLoggedIn">
                 <p>Likes: {{likes}}</p>
                 <ng-container *ngIf="canLike">
                     <button class="edit-delete-btns" (click)="likeBook()">Like</button>
@@ -24,6 +24,10 @@
                 <ng-container *ngIf="!canLike">
                     <button disabled [class.canLike]="!canLike" class="edit-delete-btns" (click)="likeBook()">Already liked</button>
                 </ng-container>
+            </div>
+
+            <div *ngIf="!isLoggedIn">
+                <button class="edit-delete-btns" routerLink="/login">Like</button>
             </div>
         </ng-container>
 
