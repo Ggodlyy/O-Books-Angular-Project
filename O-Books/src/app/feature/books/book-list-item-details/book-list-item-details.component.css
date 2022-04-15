@@ -7,7 +7,7 @@
 .book-img {
     width: 450px;
     height: 450px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .details-info {
@@ -34,4 +34,12 @@
 
 .canBuy {
     background-color: gray;
+}
+
+.p-info {
+    color: yellow;
+}
+
+.span-info {
+    color: white;
 }

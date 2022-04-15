@@ -8,15 +8,15 @@
 
 
     <div class="details-info">
-        <h1>{{book?.title}}</h1>
-        <p>Author: {{book.author}}</p>
-        <p>Genre: {{book.genre}}</p>
-        <p>Price: {{book.price}}$</p>
-        <p>Description: {{book?.description}}</p>
+        <h1 class="p-info">Title: <span class="span-info">{{book?.title}}</span></h1>
+        <p class="p-info">Author: <span class="span-info">{{book.author}}</span></p>
+        <p class="p-info">Genre: <span class="span-info">{{book.genre}}</span> </p>
+        <p class="p-info">Description: <span class="span-info">{{book?.description}}</span></p>
+        <p class="p-info">Price: <span class="span-info">{{book.price}}$</span> </p>
+        <p class="p-info">Likes: <span class="span-info">{{likes}}</span></p>
 
         <ng-container *ngIf="!isOwner">
-            <p>Likes: {{likes}}</p>
-
+   
             <section *ngIf="isLoggedIn" class="like-buy-btn">
                 <div class="like-functionality">
                     <div *ngIf="isLoggedIn">
@@ -37,7 +37,8 @@
                     </ng-container>
 
                     <ng-container *ngIf="!canBuy">
-                        <button disabled [class.canBuy]="!canBuy" class="edit-delete-btns" (click)="buyBook()">Already Purchased</button>
+                        <button disabled [class.canBuy]="!canBuy" class="edit-delete-btns" (click)="buyBook()">Already
+                            Purchased</button>
                     </ng-container>
                 </div>
             </section>
