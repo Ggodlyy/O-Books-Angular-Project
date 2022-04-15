@@ -8,6 +8,7 @@
     float: left;
     position: relative;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .book-list-item-content {
@@ -15,8 +16,7 @@
     padding: 1em;
 }
 
-.book-list-item-details-btn {
-    
+.book-list-item-details-btn {  
     padding-top: 20px;
 }
 
@@ -33,5 +33,5 @@
 .book-img {
     height: 250px;
     width: 150px;
-    object-fit: cover;
+    object-fit: contain;
 }
