@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "src/app/core/guards/auth.guard";
 import { AddBookComponent } from "./add-book/add-book.component";
 import { BookListItemDetailsComponent } from "./book-list-item-details/book-list-item-details.component";
 import { BooksListComponent } from "./books-list/books-list.component";
@@ -14,6 +15,7 @@ const routes: Routes = [
     },
     {
         path: 'add-book',
+        canActivate: [AuthGuard],
         component: AddBookComponent
     },
     {
@@ -22,6 +24,7 @@ const routes: Routes = [
     },
     {
         path: 'edit/:bookId',
+        canActivate: [AuthGuard],
         component: EditBookComponent
     }
    
