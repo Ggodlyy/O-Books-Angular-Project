@@ -123,5 +123,6 @@
 }
 
 .input-error {
-    border-left-color: red;
+    border-left-color: red !important;
+    border-left-width: 10px !important;
 }
