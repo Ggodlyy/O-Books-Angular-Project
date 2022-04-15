@@ -8,8 +8,7 @@
 }
 
 .books {
-    display: flex;
-    justify-content: flex-start;
+    float: left;
 }
 
 .bought-books-main {
