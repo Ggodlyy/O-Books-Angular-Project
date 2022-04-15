@@ -31,15 +31,16 @@
 
     <div class="nonFiltered book-info" *ngIf="filteredBookList === undefined">
         <app-book-list-item *ngFor="let book of bookList" [book]="book"></app-book-list-item>
+        <div *ngIf="bookList?.length === 0">
+            <article class="no-available-books">
+                <h1>Library is empty.</h1>
+                <a routerLink="/add-book">Add a book</a>
+            </article>
+        </div>
     </div>
 </section>
 
-<div *ngIf="bookList?.length === 0">
-    <article class="no-available-books">
-        <h1>Library is empty.</h1>
-        <a routerLink="/add-book">Add a book</a>
-    </article>
-</div>
+
 
 
 
