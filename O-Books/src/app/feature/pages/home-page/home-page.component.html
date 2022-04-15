@@ -3,4 +3,22 @@
         <h1>Books For book lovers</h1>
         <p>On this site, you can browse for books, customize your Book experience, or just add your own books for sale.</p>
     </article>
+
+    <article class="search">
+        <h1>Browse for a book</h1>
+        <form #searchForm="ngForm" (submit)="searchHandler(searchForm)">
+            <input type="text" id="search" name="search" placeholder="book title" ngModel>
+            <button class="search-btn">Search</button>
+        </form>
+    </article>
+
+
+    <ng-container *ngIf="book">
+        <app-book-list-item class="found-book" [book]="book"></app-book-list-item>
+    </ng-container>
+
+    <ng-container *ngIf="searchPressed && !book">
+        <h3 class="no-book">No such book in library!</h3>
+    </ng-container>
+    
 </section>
