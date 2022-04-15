@@ -1,8 +1,12 @@
 .book-list-item {
-    border: solid gray 2px;
-    border-radius: 4px;
+    /* border: solid gray 2px;
+    border-radius: 4px; */
     padding: 0.5em;
     margin: 5px 5px 5px 5px;
+    width: 280px;
+    height: 450px;
+    float: left;
+    position: relative;
 }
 
 .book-list-item-content {

@@ -18,8 +18,7 @@
 </article>
 
 
-
-<div *ngIf="bookList" id="book-list">
+<section *ngIf="bookList" id="book-list">
     <div *ngIf="filteredBookList?.length > 0" class="filtered book-info">
         <app-book-list-item *ngFor="let book of filteredBookList" [book]="book"></app-book-list-item>
     </div>
@@ -39,7 +38,7 @@
             </article>
         </div>
     </div>
-</div>
+</section>
 
 
 

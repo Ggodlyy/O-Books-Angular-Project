@@ -10,7 +10,7 @@
 }
 
 .book-info {
-    display: flex;
+    float: left;
 }
 
 .filter-btn {
