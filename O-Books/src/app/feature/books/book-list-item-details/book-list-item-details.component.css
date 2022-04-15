@@ -22,6 +22,7 @@
     margin: 30px;
     padding: 0.5em;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .canLike {
@@ -43,3 +44,4 @@
 .span-info {
     color: white;
 }
+

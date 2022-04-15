@@ -127,4 +127,8 @@
     border-left-width: 10px !important;
 }
 
+.create-page-image img {
+    object-fit: contain !important;
+    object-position: center !important;
+}
 
