@@ -6,9 +6,11 @@
         <ng-container *ngIf="myBookList.length > 0">
             <div class="my-books">
                 <h1>My books</h1>
-                <div class="books">
-                    <app-book-list-item *ngFor="let book of myBookList" [book]="book"></app-book-list-item>
-                </div>
+                <article class="book-list">
+                    <div class="books">
+                        <app-book-list-item *ngFor="let book of myBookList" [book]="book"></app-book-list-item>
+                    </div>
+                </article>
             </div>
         </ng-container>
 
@@ -24,9 +26,11 @@
         <ng-container *ngIf="boughtBooks.length > 0">
             <div class="bought-books">
                 <h1>Bought Books</h1>
-                <div class="books">
-                    <app-book-list-item *ngFor="let book of boughtBooks" [book]="book"></app-book-list-item>
-                </div>
+                <article class="book-list">
+                    <div class="books">
+                        <app-book-list-item *ngFor="let book of boughtBooks" [book]="book"></app-book-list-item>
+                    </div>
+                </article>
             </div>
         </ng-container>
 

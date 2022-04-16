@@ -14,3 +14,7 @@
 .bought-books-main {
     margin-top: 3%;
 }
+
+.book-list {
+    display: flex;
+}
