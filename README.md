@@ -1,4 +1,3 @@
 # O-Books\Angular Project
- Basic Angular SPA application for Softuni
+Angular SPA application 
 
-VERY MUCH WORK IN PROGRESS
